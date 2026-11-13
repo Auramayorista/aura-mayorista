@@ -1,39 +1,368 @@
+
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AURA MAYORISTA | Perfumes</title><meta name="description" content="Perfumes árabes e importados originales. AURA MAYORISTA."><style>
-:root{--violet:#7651a8;--pink:#e9a5c7;--ink:#30283a;--muted:#807889;--bg:#faf8fc;--line:#eee8f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Arial,sans-serif}header{background:linear-gradient(115deg,#7651a8,#a77cc7);color:#fff;padding:22px max(18px,calc((100% - 1180px)/2))}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{font-size:30px;font-weight:900;letter-spacing:5px}.sub{font-size:11px;letter-spacing:2px}button{border:0;border-radius:11px;padding:11px 15px;background:var(--violet);color:white;font-weight:700;cursor:pointer}header button{background:white;color:var(--violet)}main{max-width:1180px;margin:25px auto;padding:0 18px}.hero{padding:15px 0 20px}.hero h1{margin:0 0 6px;font-size:28px}.muted{color:var(--muted)}.tools{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0 20px}.tools input,.tools select,.admin input{padding:12px;border:1px solid var(--line);border-radius:10px;background:white}.tools input{flex:1;min-width:220px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}.product,.admin{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.photo{height:190px;background:#f5f0f8;display:grid;place-items:center;color:#b9a9c7}.photo img{width:100%;height:100%;object-fit:contain}.info{padding:13px}.name{font-weight:700;min-height:42px}.price{font-size:19px;font-weight:800;color:var(--violet);margin:8px 0}.stock{font-size:12px;color:var(--muted);margin-bottom:10px}.buyrow{display:flex;gap:8px}.buyrow input{width:60px;padding:8px;border:1px solid var(--line);border-radius:8px}.cart{position:fixed;right:18px;bottom:18px;width:min(370px,calc(100vw - 36px));max-height:78vh;overflow:auto;background:#fff;border:1px solid var(--line);box-shadow:0 8px 30px #27153525;border-radius:18px;padding:16px;z-index:5}.cartline{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}.total{font-size:20px;font-weight:800;margin:14px 0}.hidden{display:none!important}.admin{padding:18px;margin:22px 0}.adminrow{display:grid;grid-template-columns:1.5fr .8fr .7fr 1fr auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.adminrow input{width:100%;min-width:0}.small{font-size:12px}.footer{text-align:center;padding:40px;color:var(--muted)}.pill{background:#f1eaf7;color:var(--violet);padding:5px 9px;border-radius:99px;font-size:12px}@media(max-width:650px){
-main{padding:0 10px}
-.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.product{min-width:0}
-.photo{height:auto;aspect-ratio:1/1}
-.info{padding:8px}
-.name{font-size:12px;line-height:1.25;min-height:46px;overflow-wrap:anywhere}
-.price{font-size:14px;margin:6px 0}
-.stock{font-size:10px;line-height:1.25;min-height:25px}
-.buyrow{gap:4px;flex-wrap:wrap}
-.buyrow input{width:34px;padding:6px 3px;font-size:11px}
-.buyrow button{padding:7px 5px;font-size:10px}
-.adminrow{grid-template-columns:1fr 1fr}
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AURA MAYORISTA | Perfumes</title>
+<meta name="description" content="Perfumes árabes e importados originales. AURA MAYORISTA.">
+<style>
+:root{--violet:#7651a8;--pink:#e9a5c7;--ink:#30283a;--muted:#807889;--bg:#faf8fc;--line:#eee8f2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Arial,sans-serif}
+header{background:linear-gradient(115deg,#7651a8,#a77cc7);color:#fff;padding:22px max(18px,calc((100% - 1180px)/2))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:30px;font-weight:900;letter-spacing:5px}
+.sub{font-size:11px;letter-spacing:2px}
+button{border:0;border-radius:11px;padding:11px 15px;background:var(--violet);color:white;font-weight:700;cursor:pointer}
+header button{background:white;color:var(--violet)}
+main{max-width:1180px;margin:25px auto;padding:0 18px}
+.hero{padding:15px 0 20px}
+.hero h1{margin:0 0 6px;font-size:28px}
+.muted{color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0 20px}
+.tools input,.tools select,.admin input{padding:12px;border:1px solid var(--line);border-radius:10px;background:white}
+.tools input{flex:1;min-width:220px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.product,.admin{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.photo{height:190px;background:#f5f0f8;display:grid;place-items:center;color:#b9a9c7}
+.photo img{width:100%;height:100%;object-fit:contain}
+.info{padding:13px}
+.name{font-weight:700;min-height:42px}
+.price{font-size:19px;font-weight:800;color:var(--violet);margin:8px 0}
+.stock{font-size:12px;color:var(--muted);margin-bottom:10px}
+.buyrow{display:flex;gap:8px}
+.buyrow input{width:60px;padding:8px;border:1px solid var(--line);border-radius:8px}
+.cart{position:fixed;right:18px;bottom:18px;width:min(370px,calc(100vw - 36px));max-height:78vh;overflow:auto;background:#fff;border:1px solid var(--line);box-shadow:0 8px 30px #27153525;border-radius:18px;padding:16px;z-index:5}
+.cartline{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.total{font-size:20px;font-weight:800;margin:14px 0}
+.hidden{display:none!important}
+.admin{padding:18px;margin:22px 0}
+.adminrow{display:grid;grid-template-columns:1.5fr .8fr .7fr 1fr auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.adminrow input{width:100%;min-width:0}
+.small{font-size:12px}
+.footer{text-align:center;padding:40px;color:var(--muted)}
+.pill{background:#f1eaf7;color:var(--violet);padding:5px 9px;border-radius:99px;font-size:12px}
+
+@media(max-width:650px){
+  main{padding:0 10px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .product{min-width:0}
+  .photo{height:auto;aspect-ratio:1/1}
+  .info{padding:8px}
+  .name{font-size:12px;line-height:1.25;min-height:46px;overflow-wrap:anywhere}
+  .price{font-size:14px;margin:6px 0}
+  .stock{font-size:10px;line-height:1.25;min-height:25px}
+  .buyrow{gap:4px;flex-wrap:wrap}
+  .buyrow input{width:34px;padding:6px 3px;font-size:11px}
+  .buyrow button{padding:7px 5px;font-size:10px}
+  .adminrow{grid-template-columns:1fr 1fr}
 }
-</style></head><body>
-<header><div class="top"><div><div class="brand">AURA</div><div class="sub">MAYORISTA · PERFUMES Y MÁS</div></div><button onclick="toggleCart()">🛒 Mi carrito (<span id="count">0</span>)</button></div></header>
-<main><section class="hero"><h1>Encontrá tus favoritos</h1><div class="muted">Perfumes árabes e importados originales. Elegí tus productos y enviá tu pedido por WhatsApp.</div></section>
-<div class="tools"><input id="search" placeholder="Buscar perfume..." oninput="render()"><select id="category" onchange="render()"><option value="">Todas las categorías</option></select></div><div id="status" class="muted">Conectando catálogo...</div><div id="products" class="grid"></div>
-<section id="admin" class="admin hidden"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div><h2>Administración AURA</h2><p class="muted small">Solo tu usuario autorizado puede modificar el catálogo.</p></div><button onclick="logout()">Cerrar sesión</button></div>
-<div id="login"><h3>Ingreso administrador</h3><input id="email" type="email" placeholder="Correo de administrador"><input id="password" type="password" placeholder="Contraseña"><button onclick="login()">Ingresar</button><p id="loginmsg" class="small muted"></p></div>
-<div id="panel" class="hidden"><h3>Editar productos</h3><p class="small muted">Stock vacío = consultar disponibilidad. Para subir fotos, elegí una imagen en cada producto.</p><input id="adminsearch" placeholder="Buscar producto para editar" oninput="renderAdmin()"><div id="adminlist"></div></div></section></main>
-<aside id="cart" class="cart hidden"><div style="display:flex;justify-content:space-between"><h3>Tu pedido</h3><button onclick="toggleCart()">Cerrar</button></div><div id="cartitems"></div><div class="total" id="total">$0</div><textarea id="notes" placeholder="Aclaraciones (opcional)" style="width:100%;min-height:60px;padding:10px;border:1px solid var(--line);border-radius:9px"></textarea><button style="width:100%;margin-top:10px;background:#239b62" onclick="checkout()">Enviar por WhatsApp</button><p class="small muted">Pedido sujeto a confirmación de disponibilidad.</p></aside><div class="footer">AURA MAYORISTA · Gracias por elegirnos 💜</div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./config.js"></script><script>
-const WA='5491153434071';let db=null,products=[],categories=[],cart={};const money=n=>new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(n||0);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function init(){if(!window.supabase||!window.AURA_SUPABASE_URL||window.AURA_SUPABASE_URL.includes('PEGAR_')){document.getElementById('status').textContent='Falta configurar la conexión de Supabase en config.js.';return}db=window.supabase.createClient(window.AURA_SUPABASE_URL,window.AURA_SUPABASE_PUBLISHABLE_KEY);load()}
-async function load(){const [c,p]=await Promise.all([db.from('categories').select('id,name,slug').eq('is_active',true).order('name'),db.from('products').select('id,name,price,stock,image_url,category_id').eq('is_active',true).order('name')]);if(c.error||p.error){document.getElementById('status').textContent='No se pudo cargar el catálogo. Revisá la conexión y las políticas de Supabase.';console.error(c.error,p.error);return}categories=c.data||[];products=p.data||[];document.getElementById('category').innerHTML='<option value="">Todas las categorías</option>'+categories.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('');document.getElementById('status').textContent=products.length?`${products.length} productos disponibles`:'Todavía no hay productos cargados.';render()}
-function render(){let q=document.getElementById('search').value.toLowerCase(),cat=document.getElementById('category').value;let list=products.filter(p=>p.name.toLowerCase().includes(q)&&(!cat||p.category_id===cat));document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><div class="photo">${p.image_url?`<img src="${esc(p.image_url)}" alt="${esc(p.name)}">`:'AURA · PRODUCTO'}</div><div class="info"><div class="name">${esc(p.name)}</div><div class="price">${money(p.price)}</div><div class="stock">${p.stock==null?'Consultar disponibilidad':p.stock>0?`Disponible: ${p.stock} unidades`:'Sin stock'}</div><div class="buyrow"><input type="number" min="1" value="1" id="q${p.id}"><button ${p.stock===0?'disabled':''} onclick="add('${p.id}')">Agregar</button></div></div></article>`).join('')}
-function add(id){let p=products.find(x=>x.id===id),n=Math.max(1,Number(document.getElementById('q'+id).value)||1);if(p.stock!=null&&n+(cart[id]||0)>p.stock){alert('No hay suficiente stock.');return}cart[id]=(cart[id]||0)+n;updateCart();document.getElementById('cart').classList.remove('hidden')}
-function updateCart(){let entries=Object.entries(cart);document.getElementById('count').textContent=entries.reduce((s,[,n])=>s+n,0);document.getElementById('cartitems').innerHTML=entries.map(([id,n])=>{let p=products.find(x=>x.id===id);return `<div class="cartline"><span>${esc(p.name)} × ${n}</span><b>${money(p.price*n)}</b></div>`}).join('');document.getElementById('total').textContent=money(entries.reduce((s,[id,n])=>s+products.find(p=>p.id===id).price*n,0))}
-function toggleCart(){document.getElementById('cart').classList.toggle('hidden')}function checkout(){let e=Object.entries(cart);if(!e.length)return alert('Agregá productos.');let total=e.reduce((s,[id,n])=>s+products.find(p=>p.id===id).price*n,0),lines=e.map(([id,n])=>{let p=products.find(p=>p.id===id);return `• ${p.name} x${n} — ${money(p.price*n)}`});let msg=`Hola Aura Mayorista! Quiero realizar este pedido:\n\n${lines.join('\n')}\n\nTOTAL: ${money(total)}\n${document.getElementById('notes').value}`;window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank')}
-function showAdmin(){document.getElementById('admin').classList.remove('hidden')}async function login(){let {data,error}=await db.auth.signInWithPassword({email:document.getElementById('email').value,password:document.getElementById('password').value});document.getElementById('loginmsg').textContent=error?error.message:'Sesión iniciada';if(!error){document.getElementById('login').classList.add('hidden');document.getElementById('panel').classList.remove('hidden');renderAdmin()}}
-async function logout(){await db.auth.signOut();document.getElementById('panel').classList.add('hidden');document.getElementById('login').classList.remove('hidden')}
-async function renderAdmin(){if(!db)return;let q=(document.getElementById('adminsearch').value||'').toLowerCase();let {data,error}=await db.from('products').select('id,name,price,stock,image_url').order('name').limit(500);if(error){alert('No se pudo leer el catálogo.');return}document.getElementById('adminlist').innerHTML=data.filter(p=>p.name.toLowerCase().includes(q)).map(p=>`<div class="adminrow"><b>${esc(p.name)}</b><input type="number" min="0" value="${p.price}" id="price${p.id}" aria-label="Precio"><input type="number" min="0" value="${p.stock??''}" placeholder="Consultar" id="stock${p.id}" aria-label="Stock"><input type="file" accept="image/*" id="img${p.id}"><button onclick="saveProduct('${p.id}')">Guardar</button></div>`).join('')}
-async function saveProduct(id){let price=Number(document.getElementById('price'+id).value),st=document.getElementById('stock'+id).value;let patch={price,stock:st===''?null:Number(st),updated_at:new Date().toISOString()};let file=document.getElementById('img'+id).files[0];if(file){if(file.size>2*1024*1024)return alert('La imagen debe pesar menos de 2 MB.');let ext=(file.name.split('.').pop()||'jpg').toLowerCase(),path=id+'/'+Date.now()+'.'+ext;let up=await db.storage.from('productos').upload(path,file,{upsert:true,contentType:file.type});if(up.error)return alert('Error al subir imagen: '+up.error.message);patch.image_url=db.storage.from('productos').getPublicUrl(path).data.publicUrl}let {error}=await db.from('products').update(patch).eq('id',id);if(error)return alert('No se pudo guardar: '+error.message);await load();renderAdmin();alert('Producto actualizado.')}
-db?.auth?.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){document.getElementById('panel').classList.add('hidden');document.getElementById('login').classList.remove('hidden')}});init();
-</script><script>document.querySelector('header .top').insertAdjacentHTML('beforeend','<button onclick="showAdmin()">Administrar</button>');</script></body></html>
-(max-width: 650px) . .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }.
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div>
+      <div class="brand">AURA</div>
+      <div class="sub">MAYORISTA · PERFUMES Y MÁS</div>
+    </div>
+    <button onclick="toggleCart()">🛒 Mi carrito (<span id="count">0</span>)</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Encontrá tus favoritos</h1>
+    <div class="muted">Perfumes árabes e importados originales. Elegí tus productos y enviá tu pedido por WhatsApp.</div>
+  </section>
+  <div class="tools">
+    <input id="search" placeholder="Buscar perfume..." oninput="render()">
+    <select id="category" onchange="render()">
+      <option value="">Todas las categorías</option>
+    </select>
+  </div>
+  <div id="status" class="muted">Conectando catálogo...</div>
+  <div id="products" class="grid"></div>
+
+  <section id="admin" class="admin hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <div>
+        <h2>Administración AURA</h2>
+        <p class="muted small">Solo tu usuario autorizado puede modificar el catálogo.</p>
+      </div>
+      <button onclick="logout()">Cerrar sesión</button>
+    </div>
+    <div id="login">
+      <h3>Ingreso administrador</h3>
+      <input id="email" type="email" placeholder="Correo de administrador">
+      <input id="password" type="password" placeholder="Contraseña">
+      <button onclick="login()">Ingresar</button>
+      <p id="loginmsg" class="small muted"></p>
+    </div>
+    <div id="panel" class="hidden">
+      <h3>Editar productos</h3>
+      <p class="small muted">Stock vacío = consultar disponibilidad. Para subir fotos, elegí una imagen en cada producto.</p>
+      <input id="adminsearch" placeholder="Buscar producto para editar" oninput="renderAdmin()">
+      <div id="adminlist"></div>
+    </div>
+  </section>
+</main>
+
+<aside id="cart" class="cart hidden">
+  <div style="display:flex;justify-content:space-between">
+    <h3>Tu pedido</h3>
+    <button onclick="toggleCart()">Cerrar</button>
+  </div>
+  <div id="cartitems"></div>
+  <div class="total" id="total">$0</div>
+  <textarea id="notes" placeholder="Aclaraciones (opcional)" style="width:100%;min-height:60px;padding:10px;border:1px solid var(--line);border-radius:9px"></textarea>
+  <button style="width:100%;margin-top:10px;background:#239b62" onclick="checkout()">Enviar por WhatsApp</button>
+  <p class="small muted">Pedido sujeto a confirmación de disponibilidad.</p>
+</aside>
+
+<div class="footer">AURA MAYORISTA · Gracias por elegirnos 💜</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./config.js"></script>
+<script>
+const WA='5491153434071';
+let db=null,products=[],categories=[],cart={};
+
+const money=n=>new Intl.NumberFormat('es-AR',{
+  style:'currency',
+  currency:'ARS',
+  maximumFractionDigits:0
+}).format(n||0);
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({
+  '&':'&amp;',
+  '<':'&lt;',
+  '>':'&gt;',
+  '"':'&quot;',
+  "'":'&#39;'
+}[c]));
+
+function init(){
+  if(!window.supabase||!window.AURA_SUPABASE_URL||window.AURA_SUPABASE_URL.includes('PEGAR_')){
+    document.getElementById('status').textContent='Falta configurar la conexión de Supabase en config.js.';
+    return;
+  }
+  db=window.supabase.createClient(window.AURA_SUPABASE_URL,window.AURA_SUPABASE_PUBLISHABLE_KEY);
+  load();
+}
+
+async function load(){
+  const [c,p]=await Promise.all([
+    db.from('categories').select('id,name,slug').eq('is_active',true).order('name'),
+    db.from('products').select('id,name,price,stock,image_url,category_id').eq('is_active',true).order('name')
+  ]);
+
+  if(c.error||p.error){
+    document.getElementById('status').textContent='No se pudo cargar el catálogo. Revisá la conexión y las políticas de Supabase.';
+    console.error(c.error,p.error);
+    return;
+  }
+
+  categories=c.data||[];
+  products=p.data||[];
+
+  document.getElementById('category').innerHTML=
+    '<option value="">Todas las categorías</option>'+
+    categories.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('');
+
+  document.getElementById('status').textContent=
+    products.length?`${products.length} productos disponibles`:'Todavía no hay productos cargados.';
+
+  render();
+}
+
+function render(){
+  let q=document.getElementById('search').value.toLowerCase();
+  let cat=document.getElementById('category').value;
+
+  let list=products.filter(p=>
+    p.name.toLowerCase().includes(q)&&(!cat||p.category_id===cat)
+  );
+
+  document.getElementById('products').innerHTML=list.map(p=>`
+    <article class="product">
+      <div class="photo">
+        ${p.image_url?`<img src="${esc(p.image_url)}" alt="${esc(p.name)}">`:'AURA · PRODUCTO'}
+      </div>
+      <div class="info">
+        <div class="name">${esc(p.name)}</div>
+        <div class="price">${money(p.price)}</div>
+        <div class="stock">
+          ${p.stock==null?'Consultar disponibilidad':p.stock>0?`Disponible: ${p.stock} unidades`:'Sin stock'}
+        </div>
+        <div class="buyrow">
+          <input type="number" min="1" value="1" id="q${p.id}">
+          <button ${p.stock===0?'disabled':''} onclick="add('${p.id}')">Agregar</button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function add(id){
+  let p=products.find(x=>x.id===id);
+  let n=Math.max(1,Number(document.getElementById('q'+id).value)||1);
+
+  if(p.stock!=null&&n+(cart[id]||0)>p.stock){
+    alert('No hay suficiente stock.');
+    return;
+  }
+
+  cart[id]=(cart[id]||0)+n;
+  updateCart();
+  document.getElementById('cart').classList.remove('hidden');
+}
+
+function updateCart(){
+  let entries=Object.entries(cart);
+
+  document.getElementById('count').textContent=
+    entries.reduce((s,[,n])=>s+n,0);
+
+  document.getElementById('cartitems').innerHTML=entries.map(([id,n])=>{
+    let p=products.find(x=>x.id===id);
+    return `<div class="cartline"><span>${esc(p.name)} × ${n}</span><b>${money(p.price*n)}</b></div>`;
+  }).join('');
+
+  document.getElementById('total').textContent=
+    money(entries.reduce((s,[id,n])=>s+products.find(p=>p.id===id).price*n,0));
+}
+
+function toggleCart(){
+  document.getElementById('cart').classList.toggle('hidden');
+}
+
+function checkout(){
+  let e=Object.entries(cart);
+  if(!e.length)return alert('Agregá productos.');
+
+  let total=e.reduce((s,[id,n])=>s+products.find(p=>p.id===id).price*n,0);
+
+  let lines=e.map(([id,n])=>{
+    let p=products.find(p=>p.id===id);
+    return `• ${p.name} x${n} — ${money(p.price*n)}`;
+  });
+
+  let msg=`Hola Aura Mayorista! Quiero realizar este pedido:\n\n${lines.join('\n')}\n\nTOTAL: ${money(total)}\n${document.getElementById('notes').value}`;
+
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+function showAdmin(){
+  document.getElementById('admin').classList.remove('hidden');
+}
+
+async function login(){
+  let {data,error}=await db.auth.signInWithPassword({
+    email:document.getElementById('email').value,
+    password:document.getElementById('password').value
+  });
+
+  document.getElementById('loginmsg').textContent=
+    error?error.message:'Sesión iniciada';
+
+  if(!error){
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('panel').classList.remove('hidden');
+    renderAdmin();
+  }
+}
+
+async function logout(){
+  await db.auth.signOut();
+  document.getElementById('panel').classList.add('hidden');
+  document.getElementById('login').classList.remove('hidden');
+}
+
+async function renderAdmin(){
+  if(!db)return;
+
+  let q=(document.getElementById('adminsearch').value||'').toLowerCase();
+
+  let {data,error}=await db.from('products')
+    .select('id,name,price,stock,image_url')
+    .order('name')
+    .limit(500);
+
+  if(error){
+    alert('No se pudo leer el catálogo.');
+    return;
+  }
+
+  document.getElementById('adminlist').innerHTML=data
+    .filter(p=>p.name.toLowerCase().includes(q))
+    .map(p=>`
+      <div class="adminrow">
+        <b>${esc(p.name)}</b>
+        <input type="number" min="0" value="${p.price}" id="price${p.id}" aria-label="Precio">
+        <input type="number" min="0" value="${p.stock??''}" placeholder="Consultar" id="stock${p.id}" aria-label="Stock">
+        <input type="file" accept="image/*" id="img${p.id}">
+        <button onclick="saveProduct('${p.id}')">Guardar</button>
+      </div>
+    `).join('');
+}
+
+async function saveProduct(id){
+  let price=Number(document.getElementById('price'+id).value);
+  let st=document.getElementById('stock'+id).value;
+
+  let patch={
+    price,
+    stock:st===''?null:Number(st),
+    updated_at:new Date().toISOString()
+  };
+
+  let file=document.getElementById('img'+id).files[0];
+
+  if(file){
+    if(file.size>2*1024*1024)
+      return alert('La imagen debe pesar menos de 2 MB.');
+
+    let ext=(file.name.split('.').pop()||'jpg').toLowerCase();
+    let path=id+'/'+Date.now()+'.'+ext;
+
+    let up=await db.storage.from('productos').upload(path,file,{
+      upsert:true,
+      contentType:file.type
+    });
+
+    if(up.error)
+      return alert('Error al subir imagen: '+up.error.message);
+
+    patch.image_url=db.storage.from('productos').getPublicUrl(path).data.publicUrl;
+  }
+
+  let {error}=await db.from('products').update(patch).eq('id',id);
+
+  if(error)
+    return alert('No se pudo guardar: '+error.message);
+
+  await load();
+  renderAdmin();
+  alert('Producto actualizado.');
+}
+
+db?.auth?.onAuthStateChange((event,session)=>{
+  if(event==='SIGNED_OUT'){
+    document.getElementById('panel').classList.add('hidden');
+    document.getElementById('login').classList.remove('hidden');
+  }
+});
+
+init();
+</script>
+
+<script>
+document.querySelector('header .top').insertAdjacentHTML(
+  'beforeend',
+  '<button onclick="showAdmin()">Administrar</button>'
+);
+</script>
+</body>
+</html>
